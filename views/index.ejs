@@ -1,0 +1,68 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>FoodExplorer</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Food Explorer</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<% if (login) { %>
+						<li><a href="javascript:"><%= email %></a></li>
+					<% } else { %>
+						<li><a href="/login">Log In</a></li>
+					<% } %>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
+	<div id="search-section" class="container-fluid">
+		<div class="col-md-8 col-md-offset-2">
+			<div id="search-box">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="input-group stylish-input-group">
+							<input id="term" type="text" class="form-control"  placeholder="What do you want to eat?">
+						</div>
+					</div>
+					<div class="col-md-4">
+						<div class="input-group stylish-input-group">
+							<input id="location" type="text" class="form-control"  placeholder="and where?" data-toggle="tooltip" data-placement="bottom" title="Address, neighborhood or city !">
+							<span class="input-group-addon">
+								<button type="submit">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="list-section" class="container">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<ul id="list_of_restaurants"></ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	<script src="js/script.js"></script>
+</body>
+</html>

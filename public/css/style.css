@@ -1,0 +1,152 @@
+body {
+  background-color: #fafafa;
+}
+
+div.filter-box {
+  height: 200px;
+  background-color: #fff;
+}
+
+ul#list_of_restaurants {
+  list-style-type: none;
+}
+
+ul#list_of_restaurants li {
+  border:  1px solid #e0e0e0;
+  background-color: #fff;
+  min-height: 120px;
+  padding: 5px;
+  position: relative;
+}
+
+ul#list_of_restaurants li:not(:first-child) {
+  margin-top: 20px;
+}
+
+ul#list_of_restaurants li div.contact > h5 {
+  line-height: 10px;
+}
+
+ul#list_of_restaurants li div.img-box {
+  min-height: 120px;
+  box-shadow: 0px 0px 1px 2px #e0e0e0;
+  opacity: 0.8;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+
+ul#list_of_restaurants li div.img-box a {
+  width: 100%;
+  height: 100%;
+}
+
+ul#list_of_restaurants li div.img-box:hover {
+  opacity: 0.9
+}
+
+ul#list_of_restaurants li .name_of_rest {
+  color: #7d5959;
+}
+
+ul#list_of_restaurants li .rating_of_rest .reviews {
+  font-style: italic;
+  color: #929292;
+}
+
+ul#list_of_restaurants li .rating_of_rest .reviews > .count {
+  font-weight: bold;
+}
+
+ul#list_of_restaurants li .contact {
+  padding: 15px;
+}
+
+ul#list_of_restaurants li .contact > .city_of_rest {
+  color: red;
+}
+
+ul#list_of_restaurants li .reserve {
+  position: relative;
+  top: 40px;
+}
+
+.glyphicon-heart.half {
+  position: relative;
+}
+
+.glyphicon-heart {
+  color: #ff5b5b;
+}
+
+.glyphicon-heart-empty {
+  color: #ffa8a8;
+}
+
+.glyphicon-heart.half:before {
+  position: relative;
+  z-index: 9;
+  width: 51%;
+  display: block;
+  overflow: hidden;
+}
+
+.glyphicon-heart.half:after {
+  content:"\e143";
+  position: absolute;
+  z-index: 8;
+  color: #ffa8a8;
+  top: 0;
+  left: 0;
+}
+
+#search-section {
+
+  background-image: url('https://static.pexels.com/photos/852/restaurant-village-germany-chairs.jpg');
+  background-position: center;
+  background-size: cover;
+  height: 250px;
+}
+
+#search-box {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#list-section {
+  padding-top: 20px;
+}
+
+.stylish-input-group{
+  width: 100%;
+}
+
+.stylish-input-group .input-group-addon{
+    background: white !important;
+    font-size: 18px;
+}
+.stylish-input-group .input-group-addon span {
+  color: #7d5959;
+}
+.stylish-input-group .form-control{
+	border-right:0;
+	box-shadow:0 0 0;
+	border-color:#e0e0e0;
+  border-radius: 0px;
+}
+.stylish-input-group button {
+    border:0;
+    background:transparent;
+}
+
+.stylish-input-group input {
+  height: 50px;
+  font-size: 18px;
+  color: #a0a0a0;
+  font-weight: lighter;
+  opacity: 0.8;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
