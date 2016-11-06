@@ -50,7 +50,8 @@ var req_data = {
 request(req_data, function(err, res) {
 	var json = JSON.parse(res.body);
 	yelpToken = json.access_token;
-	console.log(yelpToken);
+	//console.log(yelpToken);
+	//console.log(json);
 });
 // =======================================================
 // END OF YELP AUTH && FETCH TOKEN
@@ -76,7 +77,7 @@ io.on('connection', function (socket) {
 				"categories": "restaurants,bars,pubs"
 			}
 		};
-
+	
 		if(typeof data.location != "undefined") {
 			req_data.qs.location = validator.escape(String(data.location))
 		} else {
@@ -92,7 +93,6 @@ io.on('connection', function (socket) {
 		request(req_data, function(err, res) {
 			if(typeof res.body != "undefined") {
 				var json = JSON.parse(res.body);
-
 				if(typeof json.error == "undefined") {
 
 					socket.emit('list of restaurants', json);

@@ -3,17 +3,32 @@ module.exports = function(app, passport) {
 
 	// =====================================
 	// HOME PAGE (with login links) ========
+	// Check first user is logged in, if not redirect the user to login page
 	// =====================================
 	app.get('/', function(req, res) {
 		var data = { login: req.isAuthenticated() };
 		if (data.login) {
+			//console.log(req.user);
 			data.email = req.user.facebook.email;
+			data.email = req.user.local.email;
 			res.render('index.ejs', data);
+		}
+		else
+		{
+			//res.render('login.ejs');
 		}
 
 		res.render('index.ejs', data); // load the index.ejs file
 	});
-
+	
+	// =====================================
+	// Detail Page	   =====================
+	// =====================================
+	app.get('/detail',function(req,res){
+		res.render('detail.ejs', { value: req.rest_value });
+	});
+	
+	
 	// =====================================
 	// FACEBOOK ROUTES =====================
 	// =====================================

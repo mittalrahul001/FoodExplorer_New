@@ -18,7 +18,7 @@ $('div#search-box button').on('click', function() {
 
 socket.on('list of restaurants', function(data) {
 
-  console.log(data);
+  //console.log(data);
 
   if(data.total < 1) {
     console.log("No data");
@@ -33,7 +33,10 @@ socket.on('list of restaurants', function(data) {
         $('<div />', {class: 'row'}).append(
           $('<div />', {class: 'col-md-3'}).append(
             $('<div />', {class: 'img-box'}).css('background-image', 'url("'+ value.image_url +'")').click(function() {
+				console.dir(value);
+				//location.href = res.redirect('detail',value);
               location.href = value.url;
+			  //console.log(value.url);
             })
           ),
           $('<div />', {class: 'col-md-4'}).append(
