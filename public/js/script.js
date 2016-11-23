@@ -33,8 +33,8 @@ socket.on('list of restaurants', function(data) {
         $('<div />', {class: 'row'}).append(
           $('<div />', {class: 'col-md-3'}).append(
             $('<div />', {class: 'img-box'}).css('background-image', 'url("'+ value.image_url +'")').click(function() {
-				console.dir(value);
-				//location.href = res.redirect('detail',value);
+				//console.dir(value);
+				//location.href = 'details/' + value.id; // HERE
               location.href = value.url;
 			  //console.log(value.url);
             })

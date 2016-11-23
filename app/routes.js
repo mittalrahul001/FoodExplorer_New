@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
 	// =====================================
 	// Detail Page	   =====================
 	// =====================================
-	app.get('/detail',function(req,res){
+	app.get('/detail/:id',function(req,res){
 		res.render('detail.ejs', { value: req.rest_value });
 	});
 	
