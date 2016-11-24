@@ -7,6 +7,7 @@ var yelpAuth = require('../config/auth').yelpAuth;
 var yelpToken = '';
 describe('MOCHA TEST', function () {
 
+		//Check if Localhost is running or not
 	  	it('localhost running', function (done) {
 		    http.get('http://localhost:8080', function (res) {
 		      assert.equal(200, res.statusCode);
@@ -14,6 +15,7 @@ describe('MOCHA TEST', function () {
 		    });
 	  	});
 
+		//Check if MongoDB is running or not
 	  	it('mongodb running', function (done) {
 	  		mongoose.connect('mongodb://localhost/test');
 	        mongoose.connection.on('connected', function () {  
@@ -21,13 +23,15 @@ describe('MOCHA TEST', function () {
 			});
 
 			mongoose.connection.on('disconnected', function () {  
-			  done();
+			  return();
 			}); 
 
 	  	});
+		
+		//Check Facebook Authentication
 
 	  	it('facebook auth check', function (done) {
-	        http.get('http://localhost:8080/auth/facebook', function (err, browser) {
+	        http.get('http://localhost:8080/auth/facebook/', function (err, browser) {
 	            if (err){
 	            	return;
 	            }else{
@@ -36,7 +40,9 @@ describe('MOCHA TEST', function () {
 	            }
 	        });
     	});
-
+		
+		
+		//Check if Yelp API is returning the data
     	it('Yelp api return data', function(done){
 	    		var req_data = {
 				url: 'https://api.yelp.com/oauth2/token',

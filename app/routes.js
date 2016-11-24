@@ -8,38 +8,27 @@ module.exports = function(app, passport) {
 	app.get('/', function(req, res) {
 		var data = { login: req.isAuthenticated() };
 		if (data.login) {
-			//console.log(req.user);
 			data.email = req.user.facebook.email;
 			data.email = req.user.local.email;
 			res.render('index.ejs', data);
 		}
 		else
 		{
-			//res.render('login.ejs');
+			res.render('login.ejs');
 		}
-
-		res.render('index.ejs', data); // load the index.ejs file
 	});
-	
-	// =====================================
-	// Detail Page	   =====================
-	// =====================================
-	app.get('/detail/:id',function(req,res){
-		res.render('detail.ejs', { value: req.rest_value });
-	});
-	
 	
 	// =====================================
 	// FACEBOOK ROUTES =====================
 	// =====================================
 	// route for facebook authentication and login
-	app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+	app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email']}));
 
 	// handle the callback after facebook has authenticated the user
 	app.get('/auth/facebook/callback',
 		passport.authenticate('facebook', {
 			successRedirect : '/',
-			failureRedirect : '/'
+			failureRedirect : '/login'
 		}));
 
 	// =====================================
@@ -78,7 +67,7 @@ module.exports = function(app, passport) {
     });
 	
 	 // process the signup form
-    app.post('/signup', passport.authenticate('local-signup', {
+    app.post('/signup', passport.authenticate('local-login', {
         successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/signup', // redirect back to the signup page if there is an error
         failureFlash : true, // allow flash messages

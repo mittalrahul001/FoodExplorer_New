@@ -12,7 +12,7 @@ var request = require('request');
 
 var configDB = require('./config/database.js');
 
-//mongoose.connect(configDB.url);
+mongoose.connect(configDB.url);
 
 require('./config/passport')(passport);
 
